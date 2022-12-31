@@ -1,0 +1,26 @@
+{
+  "name": "react-getting-started",
+  "version": "1.0.0",
+  "description": "Namaste Javascript",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naufilshaikh09/react-getting-started.git"
+  },
+  "author": "Naufil Shaikh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naufilshaikh09/react-getting-started/issues"
+  },
+  "homepage": "https://github.com/naufilshaikh09/react-getting-started#readme",
+  "devDependencies": {
+    "parcel": "^2.8.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
