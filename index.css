@@ -1,3 +1,10 @@
 #container {
     color:blue;
 }
+
+.setwidth{
+    width: 700px;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+}
