@@ -22,6 +22,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+//CreateElement
 const h1 = React.createElement(
     "h1",
     {
@@ -57,18 +58,28 @@ const title = React.createElement(
     [h1, h2, h3]
 );
 
+//JSX
 const jsx = (
     <div className='title'>
-        <h1 id='jh1'>hello1</h1>
-        <h2 id='jh2'>hello2</h2>
-        <h3 id='jh3'>hello3</h3>
+        <h1 id='jh1' customeattribute1="hello1">hello1</h1>
+        <h2 id='jh2' customeattribute2="hello2">hello2</h2>
+        <h3 id='jh3' customeattribute3="hello3">hello3</h3>
     </div>
 )
+
+//Functional Component //Composing component > when you use component inside another component
+const FunctionalComponent = () => {
+    return (
+        <div>{jsx}</div>
+    )
+}
 
 const mergeElements = (
     <div>
         {title}
         {jsx}
+        <FunctionalComponent />
+        {/* <FunctionalComponent></FunctionalComponent> */}
     </div>
 )
 
@@ -78,3 +89,4 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(title);
 // root.render(jsx);
 root.render(mergeElements);
+// root.render(<FunctionalComponent />);
