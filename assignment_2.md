@@ -40,35 +40,27 @@ https://webpack.js.org/guides/tree-shaking/
 Ref:
 https://webpack.js.org/concepts/hot-module-replacement/
 
-8. List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
--
-
-9. What is `.gitignore`? What should we add and not add into it?
+8. What is `.gitignore`? What should we add and not add into it?
 Ref:
 https://www.freecodecamp.org/news/gitignore-what-is-it-and-how-to-add-to-repo/
 
-10. What is the difference between `package.json` and `package-lock.json`
+9. What is the difference between `package.json` and `package-lock.json`
 Ref:
 https://www.knowledgehut.com/blog/web-development/package-json-vs-package-lock-json
 https://medium.com/dlt-labs-publication/package-json-vs-package-lock-json-c8d5deba12cb
 
-11. Why should I not modify `package-lock.json`?
--
+10. Why should I not modify `package-lock.json`?
+Ref:
+https://blog.logrocket.com/why-you-should-use-package-lock-json/
 
-12. What is `node_modules` ? Is it a good idea to push that on git?
--
+11. What is `node_modules` ? Is it a good idea to push that on git?
+- The node_modules folder is used to save all downloaded packages from npm in your computer. it shouldn't committed on git because it can reinstall with npm install command with the help of package-lock.json.
 
-13. What is the `dist` folder?
--
+12. What is the `dist` folder?
+- dist folder contains minified files for production when running build commands.
 
-14. What is `browserlists`
+13. What is `browserlists`
 - Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. It's used by frameworks/libraries such as React, Angular and Vue, but it's not limited to them.
 
 Ref:
 https://browsersl.ist
-
-15. Read about dif bundlers: vite, webpack, parcel
-
-16. Read about: ^ - caret and ~ - tilda
-
-17. Read about Script types in html (MDN Docs)
