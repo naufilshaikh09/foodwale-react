@@ -32,18 +32,6 @@ const HeaderComponent = () => {
     )
 }
 
-// function HeaderComponent() {
-//     return (
-//         <Navbar bg="light" expand="lg">
-//             <Container>
-//                 <Navbar.Brand><img src={logo} width={50} height={50} /></Navbar.Brand>
-//                 <Navbar.Brand><input type={'text'} className='setwidth' placeholder='Search here...'></input></Navbar.Brand>
-//                 <Navbar.Brand><FaUserAlt /></Navbar.Brand>
-//             </Container>
-//         </Navbar>
-//     );
-// }
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<HeaderComponent />);
