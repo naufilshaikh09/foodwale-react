@@ -1,10 +1,6 @@
-#container {
-    color:blue;
-}
-
-.setwidth{
-    width: 700px;
-    border-right: none;
-    border-left: none;
-    border-top: none;
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid black;
 }
