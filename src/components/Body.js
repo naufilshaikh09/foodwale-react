@@ -5,6 +5,8 @@ import { RESTAURANT_API } from '../constant'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { LinkContainer } from 'react-router-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 function filterData(searchText, restaurants) {
     return restaurants.filter((x) => {
@@ -38,24 +40,6 @@ const Body = () => {
         ? <Shimmer />
         : (
             <div className='container'>
-                {/* <div className='search-container'>
-                    <input
-                        type='text'
-                        className='search-input'
-                        placeholder='search'
-                        value={searchText}
-                        onChange={(e) => setSearchText(e.target.value)}
-                    />
-                    <button
-                        className='search-btn'
-                        onClick={() => {
-                            const data = filterData(searchText, allRestaurants);
-                            setFilteredRestaurants(data);
-                        }}
-                    > Search
-                    </button>
-                </div> */}
-
                 <InputGroup className="mb-1">
                     <Form.Control
                         placeholder="Search Restaurants..."
@@ -75,7 +59,16 @@ const Body = () => {
                     {
                         filteredRestaurants.length === 0 ? "No data found" :
                             filteredRestaurants.map((restaurant) => {
-                                return <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+                                return (
+                                    <LinkContainer
+                                        to={"/restaurant/" + restaurant.data.id}
+                                        key={restaurant.data.id}
+                                        className="normal-text">
+                                        <NavLink>
+                                            <RestaurantCard {...restaurant.data} />
+                                        </NavLink>
+                                    </LinkContainer>
+                                )
                             })
                     }
                 </div>

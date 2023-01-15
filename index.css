@@ -55,3 +55,19 @@
     background: lightgrey;
     margin: 35px;
 }
+
+.menu {
+    display: flex;
+}
+
+.normal-text {
+    color: black;
+    text-decoration: none;
+  }
+
+ .restro{
+    margin-right: auto;
+    margin-left: auto;
+    width: 40rem !important;
+    padding: 10px;
+ } 
