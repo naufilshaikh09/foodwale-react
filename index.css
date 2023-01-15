@@ -1,21 +1,23 @@
-.header {
+/* .header {
     display: flex;
     justify-content: space-between;
     margin: 10px;
     border: 1px solid black;
-}
+} */
 
-.nav-items > ul {
+/* .nav-items > ul {
     list-style-type: none;
     display: flex;
-}
+} */
 
-.nav-items > ul > li {
+/* .nav-items > ul > li {
     padding: 10px;
-}
+} */
 
 .logo {
     width: 100px;
+    margin-left: 10px;
+    height: 60px;
 }
 
 .card {
@@ -34,6 +36,22 @@
     flex-wrap: wrap;
 }
 
-.search-input{
+/* .search-input{
     margin: 10px;
+} */
+
+.input-group {
+    width: 30% !important;
+    margin: 10px;
+}
+  
+.form-control {
+    width: 30% !important;
+}
+
+.shimmer-card {
+    width: 200px;
+    height: 200px;
+    background: lightgrey;
+    margin: 35px;
 }
