@@ -15,59 +15,93 @@
 } */
 
 .logo {
-    width: 100px;
-    margin-left: 10px;
-    height: 60px;
+	width: 100px;
+	margin-left: 10px;
+	height: 60px;
 }
 
 .card {
-    width: 200px;
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
+	width: 200px;
+	border: 1px solid black;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 20px;
 }
 
-.card >img {
-    width: 100%;
+.card>img {
+	width: 100%;
+}
+
+img.card-img-top {
+	border-radius: 20px;
 }
 
 .restaurant-list {
-    display: flex;
-    flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 }
-
-/* .search-input{
-    margin: 10px;
-} */
 
 .input-group {
-    width: 30% !important;
-    margin: 10px;
+	width: 30% !important;
+	margin: 10px;
 }
-  
+
 .form-control {
-    width: 30% !important;
+	width: 30% !important;
 }
 
 .shimmer-card {
-    width: 200px;
-    height: 200px;
-    background: lightgrey;
-    margin: 35px;
+	width: 200px;
+	height: 200px;
+	background: lightgrey;
+	margin: 35px;
 }
 
 .menu {
-    display: flex;
+	display: flex;
 }
 
 .normal-text {
-    color: black;
-    text-decoration: none;
-  }
+	color: black;
+	text-decoration: none;
+}
 
- .restro{
-    margin-right: auto;
-    margin-left: auto;
-    width: 40rem !important;
-    padding: 10px;
- } 
+.restro {
+	margin-right: auto;
+	margin-left: auto;
+	width: 40rem !important;
+	padding: 10px;
+}
+
+.restro.card {
+	border-radius: 20px;
+}
+
+.card {
+	border-radius: 20px !important;
+}
+
+.restroBanner.card {
+    width: 100% !important;
+	height: 245px !important;
+	margin: 0px;
+	background-color: black;
+	color: white;
+	border-radius: 0px !important;
+}
+
+.restroImage {
+    width: auto !important;
+}
+
+.restroImage {
+	height: 220px !important;
+}
+
+/* .card {
+	width: 200px;
+	border: 1px solid black;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 20px;
+} */

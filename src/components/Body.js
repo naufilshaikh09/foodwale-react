@@ -31,6 +31,7 @@ const Body = () => {
 
             setAllRestaurants(fetchJson?.data?.cards[2]?.data?.data?.cards);
             setFilteredRestaurants(fetchJson?.data?.cards[2]?.data?.data?.cards);
+            console.log(fetchJson?.data?.cards[2]?.data?.data?.cards);
         } catch (error) {
             console.log('There was an error while fetching restaurant ddata', error);
         }
