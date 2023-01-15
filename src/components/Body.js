@@ -2,6 +2,9 @@ import RestaurantCard from './RestaurantCard';
 import { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
 import { RESTAURANT_API } from '../constant'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function filterData(searchText, restaurants) {
     return restaurants.filter((x) => {
@@ -34,8 +37,8 @@ const Body = () => {
     return (allRestaurants?.length === 0)
         ? <Shimmer />
         : (
-            <>
-                <div className='search-container'>
+            <div className='container'>
+                {/* <div className='search-container'>
                     <input
                         type='text'
                         className='search-input'
@@ -51,7 +54,23 @@ const Body = () => {
                         }}
                     > Search
                     </button>
-                </div>
+                </div> */}
+
+                <InputGroup className="mb-1">
+                    <Form.Control
+                        placeholder="Search Restaurants..."
+                        aria-label="Recipient's username"
+                        aria-describedby="basic-addon2"
+                        value={searchText}
+                        onChange={(e) => setSearchText(e.target.value)}
+                    />
+                    <Button variant="outline-secondary" id="button-addon2" onClick={() => {
+                        const data = filterData(searchText, allRestaurants);
+                        setFilteredRestaurants(data);
+                    }}> Search
+                    </Button>
+                </InputGroup>
+
                 <div className='restaurant-list'>
                     {
                         filteredRestaurants.length === 0 ? "No data found" :
@@ -60,7 +79,7 @@ const Body = () => {
                             })
                     }
                 </div>
-            </>
+            </div>
         )
 }
 
