@@ -105,3 +105,22 @@ img.card-img-top {
 	margin: 10px;
 	border-radius: 20px;
 } */
+
+.carousels-list {
+	display: flex;
+	/* flex-wrap: wrap; */
+	/* margin: 20px; */
+}
+
+.wrapper{
+	transition: all 0.5s !important;
+  }
+  .wrapper:hover {
+	transform: scale(1.1) !important	;
+  }
+
+.carousels-list{
+	/* background: black !important; */
+	overflow: scroll;
+	/* margin:50px !important; */
+}

@@ -20,7 +20,7 @@ const RestaurantMenu = () => {
             let data = await fetch(RESTAURANT_MENU_API + restId);
             let fetchJson = await data.json();
             setRestaurantMenuDetails(fetchJson.data);
-            console.log(fetchJson.data);
+            // console.log(fetchJson.data);
         } catch (error) {
             console.log('There was an error while fetching restaurant menu ddata', error);
         }
@@ -32,7 +32,10 @@ const RestaurantMenu = () => {
                 <Card style={{ width: '19rem' }} className="restroBanner">
                     <Row>
                         <Col style={{ margin: "auto", textAlign: "right" }}>
-                            <Card.Img className="restroImage" variant="top" src={IMG_CDN_URL + restaurantMenuDetails?.cloudinaryImageId} />
+                            <Card.Img
+                                className="restroImage"
+                                variant="top"
+                                src={IMG_CDN_URL + restaurantMenuDetails?.cloudinaryImageId} />
                         </Col>
                         <Col>
                             <Card.Body>
@@ -45,14 +48,6 @@ const RestaurantMenu = () => {
                 </Card>
 
                 <div className="restaurant-list">
-                    {/* <div>
-                    <h1>{restaurantMenuDetails?.id}</h1>
-                    <h1>{restaurantMenuDetails?.area}</h1>
-                    <h1>{restaurantMenuDetails?.name}</h1>
-                    <h1>{restaurantMenuDetails?.costForTwoMsg}</h1>
-                    <h1>{restaurantMenuDetails?.avgRating}</h1>
-                </div> */}
-
                     <div className="restro">
                         {Object.values(restaurantMenuDetails?.menu?.items).map((item) => {
                             return (
@@ -72,7 +67,6 @@ const RestaurantMenu = () => {
                                 </Card>
                             )
                         })}
-
                     </div>
                 </div>
             </>
