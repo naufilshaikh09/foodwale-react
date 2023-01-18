@@ -55,9 +55,9 @@ const RestaurantMenu = () => {
                                     <Row>
                                         <Col>
                                             <Card.Body>
-                                                <Card.Title>{item.name}</Card.Title>
-                                                <Card.Text>{item.price / 100} Rs</Card.Text>
-                                                <Card.Text style={{ color: "#a19a9a" }}>{item.description}</Card.Text>
+                                                <Card.Title className='restaurant-name'>{item.name}</Card.Title>
+                                                <Card.Text className='notmal-text small-text'>{item.price / 100} Rs</Card.Text>
+                                                <Card.Text className='notmal-text small-text'>{item.description}</Card.Text>
                                             </Card.Body>
                                         </Col>
                                         <Col style={{ margin: "auto" }}>
