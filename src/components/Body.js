@@ -33,7 +33,7 @@ const Body = () => {
 
             setAllRestaurants(fetchJson?.data?.cards[2]?.data?.data?.cards);
             setFilteredRestaurants(fetchJson?.data?.cards[2]?.data?.data?.cards);
-            // console.log(fetchJson?.data?.cards[2]?.data?.data?.cards);
+            console.log(fetchJson?.data?.cards[2]?.data?.data?.cards);
 
             setCarousels(fetchJson.data.cards[0].data.data.cards);
             // console.log(fetchJson.data.cards[0].data.data.cards);
@@ -46,7 +46,7 @@ const Body = () => {
         ? <Shimmer />
         : (
             <>
-                <div className='carousels-list'>
+                <div className='carousels-list d-flex justify-content-center'>
                     {
                         carousels.length === 0 ? "No data found" :
                             carousels.map((carousel) => {
