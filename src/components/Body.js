@@ -1,5 +1,5 @@
 import RestaurantCard from './RestaurantCard';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
 import { RESTAURANT_API } from '../constant'
 import Button from 'react-bootstrap/Button';
