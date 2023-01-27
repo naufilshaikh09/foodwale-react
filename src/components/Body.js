@@ -1,7 +1,7 @@
 import RestaurantCard from './RestaurantCard';
 import React, { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
-import { RESTAURANT_API } from '../constant'
+import { RESTAURANT_API } from '../utils/constant'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';

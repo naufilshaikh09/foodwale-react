@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaUserAlt } from 'react-icons/fa';
-import logo from '../images/logo.png';
+import logo from '../src/assets/images/logo.png';
 import Carousel from 'react-bootstrap/Carousel';
 
 const LogoComponent = () => {

@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import { RESTAURANT_MENU_API } from "../constant"
+import { RESTAURANT_MENU_API, IMG_CDN_URL } from "../utils/constant"
 import Shimmer from "./Shimmer";
 import Card from 'react-bootstrap/Card';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { IMG_CDN_URL } from '../constant';
 
 const RestaurantMenu = () => {
     let { restId } = useParams();

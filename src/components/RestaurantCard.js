@@ -1,4 +1,4 @@
-import { IMG_CDN_URL } from '../constant';
+import { IMG_CDN_URL } from '../utils/constant';
 import Card from 'react-bootstrap/Card';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

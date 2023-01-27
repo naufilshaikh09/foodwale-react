@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
-import { RESTAURANT_CAROUSELS_API } from '../constant'
+import { RESTAURANT_CAROUSELS_API } from '../utils/constant'
 import Image from 'react-bootstrap/Image'
 
 const Carousels = ({ creativeId }) => {
