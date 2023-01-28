@@ -7,8 +7,12 @@ const Shimmer = () => {
                 Array(20)
                     .fill("")
                     .map((e, index) => (
-                        <Card key={index} style={{ width: '19rem' }} >
-                            <Card.Body className='shimmer-card'></Card.Body>
+                        <Card
+                            key={index}
+                            style={{ width: '19rem' }} >
+                            <Card.Body
+                                className='shimmer-card'>
+                            </Card.Body>
                         </Card>
                     ))
             }

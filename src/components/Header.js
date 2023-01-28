@@ -2,8 +2,9 @@ import { useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from '../../images/logo.png'
+import logo from '../assets/images/logo.png'
 import { LinkContainer } from "react-router-bootstrap";
+import useLocalStorage from "../utils/useLocalStorage";
 
 const Title = () => {
     return (
@@ -16,7 +17,8 @@ const Title = () => {
 }
 
 const Header = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isUserLoggedIn, getSetLocalStorage] = useLocalStorage("isLoggedIn", "true");
 
     return (
         <Navbar bg="light" expand="md">
@@ -41,10 +43,23 @@ const Header = () => {
                         <LinkContainer to="/cart">
                             <Nav.Link>Cart</Nav.Link>
                         </LinkContainer>
-                        {
+                        {/* {
                             isLoggedIn
                                 ? <Nav.Link onClick={() => setIsLoggedIn(false)}>Logout</Nav.Link>
                                 : <Nav.Link onClick={() => setIsLoggedIn(true)}>Login</Nav.Link>
+                        } */}
+                        {
+                            isUserLoggedIn == "true"
+                                ? <Nav.Link
+                                    onClick={
+                                        () => getSetLocalStorage("isLoggedIn", "false")
+                                    }>Logout
+                                </Nav.Link>
+                                : <Nav.Link
+                                    onClick={
+                                        () => getSetLocalStorage("isLoggedIn", "true")
+                                    }>Login
+                                </Nav.Link>
                         }
                     </Nav>
                 </Navbar.Collapse>
