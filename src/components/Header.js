@@ -50,8 +50,16 @@ const Header = () => {
                         } */}
                         {
                             isUserLoggedIn == "true"
-                                ? <Nav.Link onClick={() => getSetLocalStorage("isLoggedIn", "false")}>Logout</Nav.Link>
-                                : <Nav.Link onClick={() => getSetLocalStorage("isLoggedIn", "true")}>Login</Nav.Link>
+                                ? <Nav.Link
+                                    onClick={
+                                        () => getSetLocalStorage("isLoggedIn", "false")
+                                    }>Logout
+                                </Nav.Link>
+                                : <Nav.Link
+                                    onClick={
+                                        () => getSetLocalStorage("isLoggedIn", "true")
+                                    }>Login
+                                </Nav.Link>
                         }
                     </Nav>
                 </Navbar.Collapse>

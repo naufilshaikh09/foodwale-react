@@ -28,7 +28,6 @@ const Body = () => {
     async function getRestaurantList() {
         try {
             let data = await fetch(RESTAURANT_API);
-
             let fetchJson = await data.json();
 
             setAllRestaurants(fetchJson?.data?.cards[2]?.data?.data?.cards);
@@ -48,8 +47,9 @@ const Body = () => {
             <>
                 <div className='carousels-list d-flex justify-content-center'>
                     {
-                        carousels.length === 0 ? "No data found" :
-                            carousels.map((carousel) => {
+                        carousels.length === 0
+                            ? "No data found"
+                            : carousels.map((carousel) => {
                                 return (
                                     <Carousels
                                         {...carousel.data}
@@ -79,8 +79,9 @@ const Body = () => {
 
                     <div className='restaurant-list'>
                         {
-                            filteredRestaurants.length === 0 ? "No data found" :
-                                filteredRestaurants.map((restaurant) => {
+                            filteredRestaurants.length === 0
+                                ? "No data found"
+                                : filteredRestaurants.map((restaurant) => {
                                     return (
                                         <LinkContainer
                                             to={"/restaurant/" + restaurant.data.id}

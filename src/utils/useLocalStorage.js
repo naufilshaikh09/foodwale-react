@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
 const useLocalStorage = (localStorageKey, localStorageValue) => {
+    if (!localStorageKey) return [null, getSetLocalStorage];
+    if (!localStorageKey && !localStorageValue) return [null, getSetLocalStorage];
+
     const [getLocalStorage, setlocalStorage] = useState(localStorageValue);
 
     useEffect(() => {
@@ -12,7 +15,6 @@ const useLocalStorage = (localStorageKey, localStorageValue) => {
             localStorage.setItem(key, value);
             setlocalStorage(localStorage.getItem(key));
         } else {
-            if (!key) return [null, getSetLocalStorage];
             setlocalStorage(localStorage.getItem(key));
         }
     }
