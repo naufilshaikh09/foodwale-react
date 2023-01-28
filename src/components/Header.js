@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../assets/images/logo.png'
 import { LinkContainer } from "react-router-bootstrap";
-import useLocalStorage from "../utils/UseLocalStorage";
+import useLocalStorage from "../utils/useLocalStorage";
 
 const Title = () => {
     return (
