@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../assets/images/logo.png'
 import { LinkContainer } from "react-router-bootstrap";
 import useLocalStorage from "../utils/useLocalStorage";
+import SignIn from "./SignIn";
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import userContext from "../utils/userContext";
 
 const Title = () => {
     return (
@@ -18,7 +21,13 @@ const Title = () => {
 
 const Header = () => {
     // const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isUserLoggedIn, getSetLocalStorage] = useLocalStorage("isLoggedIn", "true");
+    const [isUserLoggedIn, getSetLocalStorage] = useLocalStorage("isLoggedIn", "false");
+    const [show, setShow] = useState(false);
+
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
+
+    const { user, setUser } = useContext(userContext);
 
     return (
         <Navbar bg="light" expand="md">
@@ -43,24 +52,44 @@ const Header = () => {
                         <LinkContainer to="/cart">
                             <Nav.Link>Cart</Nav.Link>
                         </LinkContainer>
+                        {
+                            isUserLoggedIn == "true"
+                                ? <Nav.Link
+                                    onClick={
+                                        () => {
+                                            setUser({
+                                                email: ""
+                                            });
+                                            getSetLocalStorage("isLoggedIn", "false");
+                                        }
+                                    }>Logout ({user?.email})
+                                </Nav.Link>
+                                : <Nav.Link
+                                    onClick={
+                                        () => {
+                                            handleShow();
+                                        }
+                                    }>Login
+                                </Nav.Link>
+                        }
                         {/* {
                             isLoggedIn
                                 ? <Nav.Link onClick={() => setIsLoggedIn(false)}>Logout</Nav.Link>
                                 : <Nav.Link onClick={() => setIsLoggedIn(true)}>Login</Nav.Link>
                         } */}
-                        {
-                            isUserLoggedIn == "true"
-                                ? <Nav.Link
-                                    onClick={
-                                        () => getSetLocalStorage("isLoggedIn", "false")
-                                    }>Logout
-                                </Nav.Link>
-                                : <Nav.Link
-                                    onClick={
-                                        () => getSetLocalStorage("isLoggedIn", "true")
-                                    }>Login
-                                </Nav.Link>
-                        }
+
+                        <Offcanvas
+                            show={show}
+                            onHide={handleClose}
+                            placement={"end"}>
+                            <Offcanvas.Header closeButton></Offcanvas.Header>
+                            <Offcanvas.Body>
+                                <SignIn
+                                    handleClose={handleClose}
+                                    getSetLocalStorage={getSetLocalStorage} />
+                            </Offcanvas.Body>
+                        </Offcanvas>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>
