@@ -193,3 +193,18 @@
 	border: #fc8019 !important
  }
   
+ a.header-name.nav-link {
+    margin-right: 50px;
+	font-weight: 500;
+	font-size: 18px;
+}
+
+a.header-name.nav-link:hover {
+	color: #fc8019;
+}
+
+svg.header-icon {
+	margin-right: 10px;
+	font-weight: 500;
+	font-size: 18px;
+}

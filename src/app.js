@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import Header from './components/Header';
 import Body from './components/Body';
 import Footer from './components/Footer';
-// import About from './components/About';
-import Contact from './components/Contact'
+// import Offer from './components/Offer';
+import Help from './components/Help'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import Cart from './components/Cart';
@@ -16,7 +16,7 @@ import userContext from './utils/userContext';
 import { Provider } from 'react-redux';
 import store from './utils/store';
 
-const About = lazy(() => import("./components/About"))
+const Offer = lazy(() => import("./components/Offer"))
 
 const AppLayout = () => {
     const [user, setUser] = useState({
@@ -32,7 +32,7 @@ const AppLayout = () => {
                 }}>
                 <Header />
                 <Outlet />
-                <Footer />
+                {/* <Footer /> */}
             </userContext.Provider>
         </Provider>
     );
@@ -49,8 +49,8 @@ const appRouter = createBrowserRouter([
                 element: <Body />
             },
             {
-                path: '/about',
-                element: <Suspense fallback={<Shimmer />}><About /></Suspense>,
+                path: '/offer',
+                element: <Suspense fallback={<Shimmer />}><Offer /></Suspense>,
                 children: [
                     {
                         path: 'profile',
@@ -59,8 +59,8 @@ const appRouter = createBrowserRouter([
                 ]
             },
             {
-                path: '/contact',
-                element: <Contact />
+                path: '/help',
+                element: <Help />
             },
             {
                 path: '/cart',

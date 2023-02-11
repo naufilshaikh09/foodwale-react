@@ -9,6 +9,7 @@ import SignIn from "./SignIn";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import userContext from "../utils/userContext";
 import { useSelector } from "react-redux";
+import { MdLocalOffer, MdOutlineHelp, MdPeopleAlt, MdShoppingCart } from "react-icons/md";
 
 const Title = () => {
     return (
@@ -33,7 +34,7 @@ const Header = () => {
     // console.log(cartItems);
 
     return (
-        <Navbar bg="light" expand="md">
+        <Navbar bg="light" expand="md" sticky="top">
             <Container>
                 <LinkContainer to="/">
                     <Navbar.Brand>
@@ -43,25 +44,15 @@ const Header = () => {
                 <Navbar.Toggle />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Nav>
-                        <LinkContainer to="/">
-                            <Nav.Link>Home</Nav.Link>
+                        <LinkContainer to="/offer">
+                            <Nav.Link className="header-name"><MdLocalOffer className="header-icon" /> Offer</Nav.Link>
                         </LinkContainer>
-                        <LinkContainer to="/about">
-                            <Nav.Link>About</Nav.Link>
-                        </LinkContainer>
-                        <LinkContainer to="/contact">
-                            <Nav.Link>Contact</Nav.Link>
-                        </LinkContainer>
-                        <LinkContainer to="/cart">
-                            {
-                                cartItems.length > 0
-                                    ? <Nav.Link>Cart({cartItems.length})</Nav.Link>
-                                    : <Nav.Link>Cart</Nav.Link>
-                            }
+                        <LinkContainer to="/help">
+                            <Nav.Link className="header-name"><MdOutlineHelp className="header-icon" />Help</Nav.Link>
                         </LinkContainer>
                         {
                             isUserLoggedIn == "true"
-                                ? <Nav.Link
+                                ? <Nav.Link className="header-name"
                                     onClick={
                                         () => {
                                             setUser({
@@ -69,14 +60,14 @@ const Header = () => {
                                             });
                                             getSetLocalStorage("isLoggedIn", "false");
                                         }
-                                    }>Logout ({user?.email})
+                                    }> <MdPeopleAlt className="header-icon" /> Logout ({user?.email})
                                 </Nav.Link>
-                                : <Nav.Link
+                                : <Nav.Link className="header-name"
                                     onClick={
                                         () => {
                                             handleShow();
                                         }
-                                    }>Login
+                                    }> <MdPeopleAlt className="header-icon" /> Login
                                 </Nav.Link>
                         }
                         {/* {
@@ -84,6 +75,13 @@ const Header = () => {
                                 ? <Nav.Link onClick={() => setIsLoggedIn(false)}>Logout</Nav.Link>
                                 : <Nav.Link onClick={() => setIsLoggedIn(true)}>Login</Nav.Link>
                         } */}
+                        <LinkContainer to="/cart">
+                            {
+                                cartItems.length > 0
+                                    ? <Nav.Link className="header-name" ><MdShoppingCart className="header-icon" />Cart({cartItems.length})</Nav.Link>
+                                    : <Nav.Link className="header-name" > <MdShoppingCart className="header-icon" />Cart</Nav.Link>
+                            }
+                        </LinkContainer>
 
                         <Offcanvas
                             show={show}
