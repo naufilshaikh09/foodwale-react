@@ -5,10 +5,14 @@ import Shimmer from "./Shimmer";
 import Card from 'react-bootstrap/Card';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
+import { Button } from "react-bootstrap";
 
 const RestaurantMenu = () => {
     let { restId } = useParams();
     const [restaurantMenuDetails, setRestaurantMenuDetails] = useState(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         getRestaurantMenu();
@@ -23,6 +27,10 @@ const RestaurantMenu = () => {
         } catch (error) {
             console.log('There was an error while fetching restaurant menu ddata', error);
         }
+    }
+
+    const addFoodItem = (item) => {
+        dispatch(addItem(item));
     }
 
     return !restaurantMenuDetails
@@ -81,6 +89,7 @@ const RestaurantMenu = () => {
                                                         className='notmal-text small-text'>
                                                         {item.description}
                                                     </Card.Text>
+                                                    <Button onClick={() => addFoodItem(item)}>Add</Button>
                                                 </Card.Body>
                                             </Col>
                                             <Col style={{ margin: "auto" }}>

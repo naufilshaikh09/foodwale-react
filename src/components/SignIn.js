@@ -89,7 +89,7 @@ const SignIn = ({ handleClose, getSetLocalStorage }) => {
                         <Button
                             type="submit"
                             style={{ marginTop: "10px", background: "#fc8019", border: "#fc8019" }}
-                        >Submit</Button>
+                        >Login</Button>
                     </Form>
                 )}
             </Formik >
