@@ -8,6 +8,7 @@ import useLocalStorage from "../utils/useLocalStorage";
 import SignIn from "./SignIn";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import userContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 const Title = () => {
     return (
@@ -28,6 +29,8 @@ const Header = () => {
     const handleClose = () => setShow(false);
 
     const { user, setUser } = useContext(userContext);
+    const cartItems = useSelector((store) => store.cart.items);
+    // console.log(cartItems);
 
     return (
         <Navbar bg="light" expand="md">
@@ -50,7 +53,11 @@ const Header = () => {
                             <Nav.Link>Contact</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/cart">
-                            <Nav.Link>Cart</Nav.Link>
+                            {
+                                cartItems.length > 0
+                                    ? <Nav.Link>Cart({cartItems.length})</Nav.Link>
+                                    : <Nav.Link>Cart</Nav.Link>
+                            }
                         </LinkContainer>
                         {
                             isUserLoggedIn == "true"
