@@ -17,7 +17,7 @@ const Error = () => {
 
                     <h2>Page not found</h2>
 
-                    <h6 className='notmal-text small-text'>Uh-oh! Looks like the page you are trying to access, doesn't exist. Please start afresh.</h6>
+                    <h6 className='normal-text small-text'>Uh-oh! Looks like the page you are trying to access, doesn't exist. Please start afresh.</h6>
 
                     <LinkContainer to="/">
                         <Button variant="primary" className="btnGoHome">

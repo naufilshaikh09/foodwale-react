@@ -6,8 +6,9 @@ import Card from 'react-bootstrap/Card';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
+import { addItem, removeItem } from "../utils/cartSlice";
 import { Button } from "react-bootstrap";
+import { MdOutlineLocalOffer, MdExposurePlus1, MdExposureNeg1 } from "react-icons/md";
 
 const RestaurantMenu = () => {
     let { restId } = useParams();
@@ -23,7 +24,7 @@ const RestaurantMenu = () => {
             let data = await fetch(RESTAURANT_MENU_API + restId);
             let fetchJson = await data.json();
             setRestaurantMenuDetails(fetchJson.data);
-            // console.log(fetchJson.data);
+            //console.log(fetchJson.data);
         } catch (error) {
             console.log('There was an error while fetching restaurant menu ddata', error);
         }
@@ -31,6 +32,10 @@ const RestaurantMenu = () => {
 
     const addFoodItem = (item) => {
         dispatch(addItem(item));
+    }
+
+    const removeFoodItem = (item) => {
+        dispatch(removeItem(item));
     }
 
     return !restaurantMenuDetails
@@ -48,20 +53,59 @@ const RestaurantMenu = () => {
                                 variant="top"
                                 src={IMG_CDN_URL + restaurantMenuDetails?.cloudinaryImageId} />
                         </Col>
-                        <Col>
+                        <Col style={{ margin: "auto" }}>
                             <Card.Body>
                                 <Card.Title>
                                     {restaurantMenuDetails?.name}
                                 </Card.Title>
                                 <Card.Text
+                                    className="small-text"
                                     style={{ color: "#a19a9a" }}>
-                                    {restaurantMenuDetails?.cuisines?.join(",")}
+                                    {restaurantMenuDetails?.cuisines?.join(", ")}
                                 </Card.Text>
                                 <Card.Text
+                                    className="small-text"
                                     style={{ color: "#a19a9a" }}>
-                                    {restaurantMenuDetails?.area}
+                                    {restaurantMenuDetails?.locality + ", " + restaurantMenuDetails?.area}
                                 </Card.Text>
+                                <Row>
+                                    <Col style={{ borderRight: "1px solid white" }}>
+                                        <Card.Subtitle>
+                                            {restaurantMenuDetails?.avgRating}
+                                        </Card.Subtitle>
+                                        <Card.Text className='small-text'>
+                                            {restaurantMenuDetails?.totalRatingsString}
+                                        </Card.Text>
+                                    </Col>
+                                    <Col style={{ borderRight: "1px solid white" }}>
+                                        <Card.Subtitle>
+                                            {restaurantMenuDetails?.sla?.slaString}
+                                        </Card.Subtitle>
+                                        <Card.Text className='small-text'>
+                                            Delivery Time
+                                        </Card.Text>
+                                    </Col>
+                                    <Col>
+                                        <Card.Subtitle>{
+                                            restaurantMenuDetails?.costForTwo / 100} Rs
+                                        </Card.Subtitle>
+                                        <Card.Text className='small-text'>
+                                            Cost for two
+                                        </Card.Text>
+                                    </Col>
+                                </Row>
                             </Card.Body>
+                        </Col>
+                        <Col style={{ margin: "auto" }}>
+                            <div style={{ border: "1px solid white", width: "263px" }}>
+                                {
+                                    restaurantMenuDetails.aggregatedDiscountInfo.descriptionList.map((item, index) => {
+                                        return <p key={index} style={{ margin: "20px" }}>
+                                            <MdOutlineLocalOffer /> {item.meta}
+                                        </p>
+                                    })
+                                }
+                            </div>
                         </Col>
                     </Row>
                 </Card>
@@ -82,14 +126,27 @@ const RestaurantMenu = () => {
                                                         className='restaurant-name'>{item.name}
                                                     </Card.Title>
                                                     <Card.Text
-                                                        className='notmal-text small-text'>
+                                                        className='normal-text small-text'>
                                                         {item.price / 100} Rs
                                                     </Card.Text>
                                                     <Card.Text
-                                                        className='notmal-text small-text'>
+                                                        className='normal-text small-text'>
                                                         {item.description}
                                                     </Card.Text>
-                                                    <Button onClick={() => addFoodItem(item)}>Add</Button>
+                                                    {/* <Button onClick={() => addFoodItem(item)}>Add</Button>
+                                                    <Button onClick={() => removeFoodItem(item)}>Remove</Button> */}
+                                                    <div style={{ float: "right" }}>
+                                                        <Button
+                                                            style={{ marginRight: "1px", background: "red", borderColor: "red" }}
+                                                            onClick={() => removeFoodItem(item)}>
+                                                            <MdExposureNeg1 />
+                                                        </Button>
+                                                        <Button
+                                                            style={{ marginRight: "1px", background: "green", borderColor: "green" }}
+                                                            onClick={() => addFoodItem(item)}>
+                                                            <MdExposurePlus1 />
+                                                        </Button>
+                                                    </div>
                                                 </Card.Body>
                                             </Col>
                                             <Col style={{ margin: "auto" }}>

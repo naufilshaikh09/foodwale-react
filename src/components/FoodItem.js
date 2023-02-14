@@ -15,11 +15,11 @@ const FoodItem = ({ name, description, cloudinaryImageId, price }) => {
                     {name}
                 </Card.Title>
                 <Card.Text
-                    className='notmal-text small-text'>
+                    className='normal-text small-text'>
                     {description}
                 </Card.Text>
                 <Card.Text
-                    className='notmal-text small-text'>
+                    className='normal-text small-text'>
                     {price / 100} Rs
                 </Card.Text>
             </Card.Body>

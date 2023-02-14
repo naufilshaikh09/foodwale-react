@@ -26,7 +26,7 @@ const RestaurantCard =
                             {name}
                         </Card.Title>
                         <Card.Text
-                            className='notmal-text small-text'>
+                            className='normal-text small-text'>
                             {cuisines.join(", ")}
                         </Card.Text>
                         <Row>
@@ -51,13 +51,13 @@ const RestaurantCard =
                             </Col>
                             <Col>
                                 <Card.Text
-                                    className='notmal-text small-text'>
+                                    className='normal-text small-text'>
                                     {lastMileTravelString}
                                 </Card.Text>
                             </Col>
                             <Col>
                                 <Card.Text
-                                    className='notmal-text small-text'>
+                                    className='normal-text small-text'>
                                     {costForTwoString}
                                 </Card.Text>
                             </Col>
