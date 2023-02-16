@@ -208,3 +208,17 @@ svg.header-icon {
 	font-weight: 500;
 	font-size: 18px;
 }
+
+li.li-style:hover {
+	color: #fc8019;
+	cursor: pointer;
+}
+
+.mb-1.search-text.input-group{
+	margin: auto;
+	margin-top: 10px;
+}
+
+input.search-input.form-control{
+	border-color: #fc8019 !important;
+}

@@ -12,7 +12,6 @@ const Cart = () => {
         dispatch(clearCart());
     }
 
-
     return (
         <div>
             <h1>Cart Items - {cartItems?.length}</h1>

@@ -34,7 +34,7 @@ const Header = () => {
     // console.log(cartItems);
 
     return (
-        <Navbar bg="light" expand="md" sticky="top">
+        <Navbar bg="light" expand="md" sticky="top" style={{ boxShadow: "0 2px 14px #888484" }}>
             <Container>
                 <LinkContainer to="/">
                     <Navbar.Brand>

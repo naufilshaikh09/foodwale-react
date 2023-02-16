@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import { RESTAURANT_MENU_API, IMG_CDN_URL } from "../utils/constant"
+import { RESTAURANT_MENU_API, IMG_CDN_URL, NO_CART_IMAGE_URL } from "../utils/constant"
 import Shimmer from "./Shimmer";
 import Card from 'react-bootstrap/Card';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useDispatch } from "react-redux";
 import { addItem, removeItem } from "../utils/cartSlice";
-import { Button } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import { MdOutlineLocalOffer, MdExposurePlus1, MdExposureNeg1 } from "react-icons/md";
 
 const RestaurantMenu = () => {
     let { restId } = useParams();
     const [restaurantMenuDetails, setRestaurantMenuDetails] = useState(null);
+    const [widgetList, setwidgetList] = useState(null);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -24,7 +26,9 @@ const RestaurantMenu = () => {
             let data = await fetch(RESTAURANT_MENU_API + restId);
             let fetchJson = await data.json();
             setRestaurantMenuDetails(fetchJson.data);
-            //console.log(fetchJson.data);
+            setwidgetList(fetchJson.data.menu.widgets);
+            // console.log(fetchJson.data);
+            // console.log(fetchJson.data.menu.widgets)
         } catch (error) {
             console.log('There was an error while fetching restaurant menu ddata', error);
         }
@@ -110,57 +114,90 @@ const RestaurantMenu = () => {
                     </Row>
                 </Card>
 
-                <div className="restaurant-list">
-                    <div className="restro">
+                <Row>
+                    <Col style={{ textAlign: "right", listStyleType: "none", marginTop: "15px" }}>
                         {
-                            Object.values(restaurantMenuDetails?.menu?.items).map((item) => {
-                                return (
-                                    <Card
-                                        style={{ width: '19rem' }}
-                                        key={item.id}
-                                        className="restro">
-                                        <Row>
-                                            <Col>
-                                                <Card.Body>
-                                                    <Card.Title
-                                                        className='restaurant-name'>{item.name}
-                                                    </Card.Title>
-                                                    <Card.Text
-                                                        className='normal-text small-text'>
-                                                        {item.price / 100} Rs
-                                                    </Card.Text>
-                                                    <Card.Text
-                                                        className='normal-text small-text'>
-                                                        {item.description}
-                                                    </Card.Text>
-                                                    {/* <Button onClick={() => addFoodItem(item)}>Add</Button>
-                                                    <Button onClick={() => removeFoodItem(item)}>Remove</Button> */}
-                                                    <div style={{ float: "right" }}>
-                                                        <Button
-                                                            style={{ marginRight: "1px", background: "red", borderColor: "red" }}
-                                                            onClick={() => removeFoodItem(item)}>
-                                                            <MdExposureNeg1 />
-                                                        </Button>
-                                                        <Button
-                                                            style={{ marginRight: "1px", background: "green", borderColor: "green" }}
-                                                            onClick={() => addFoodItem(item)}>
-                                                            <MdExposurePlus1 />
-                                                        </Button>
-                                                    </div>
-                                                </Card.Body>
-                                            </Col>
-                                            <Col style={{ margin: "auto" }}>
-                                                <Card.Img
-                                                    variant="top"
-                                                    src={IMG_CDN_URL + item.cloudinaryImageId} />
-                                            </Col>
-                                        </Row>
-                                    </Card>
-                                )
+                            widgetList.map((e, index) => {
+                                return <li className="li-style" key={index}>{e.name}</li>
                             })
                         }
-                    </div>
-                </div>
+                    </Col>
+                    <Col>
+                        <div className="restaurant-list">
+                            <div className="restro">
+                                {
+                                    Object.values(restaurantMenuDetails?.menu?.items).map((item) => {
+                                        return (
+                                            <Card
+                                                style={{ width: '19rem' }}
+                                                key={item.id}
+                                                className="restro">
+                                                <Row>
+                                                    <Col>
+                                                        <Card.Body>
+                                                            <Card.Title
+                                                                className='restaurant-name'>{item.name}
+                                                            </Card.Title>
+                                                            <Card.Text
+                                                                className='normal-text small-text'>
+                                                                {item.price / 100} Rs
+                                                            </Card.Text>
+                                                            <Card.Text
+                                                                className='normal-text small-text'>
+                                                                {item.description}
+                                                            </Card.Text>
+                                                            <div style={{ float: "right", position: "absolute", bottom: "10px", right: "50%" }}>
+                                                                <Button
+                                                                    style={{ marginRight: "1px", background: "red", borderColor: "red" }}
+                                                                    onClick={() => removeFoodItem(item)}>
+                                                                    <MdExposureNeg1 />
+                                                                </Button>
+                                                                <Button
+                                                                    style={{ marginRight: "1px", background: "green", borderColor: "green" }}
+                                                                    onClick={() => addFoodItem(item)}>
+                                                                    <MdExposurePlus1 />
+                                                                </Button>
+                                                            </div>
+                                                        </Card.Body>
+                                                    </Col>
+                                                    <Col style={{ margin: "auto" }}>
+                                                        {
+                                                            item.cloudinaryImageId
+                                                                ?
+                                                                <Card.Img
+                                                                    variant="top"
+                                                                    src={IMG_CDN_URL
+                                                                        + item.cloudinaryImageId} />
+                                                                :
+                                                                <Card.Img
+                                                                    variant="top"
+                                                                    src={IMG_CDN_URL
+                                                                        + restaurantMenuDetails.cloudinaryImageId} />
+                                                        }
+                                                    </Col>
+                                                </Row>
+                                            </Card>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </Col>
+                    <Col style={{ marginTop: "15px", width: "278px", marginLeft: "50px", opacity: 1 }}>
+                        <h2 style={{ width: "278px" }}>
+                            Cart Empty
+                        </h2>
+                        <Image
+                            src={NO_CART_IMAGE_URL}
+                            style={{ width: "278px", height: "212px", marginTop: "20px", marginBottom: "20px" }}>
+                        </Image>
+                        <p
+                            className="small-text"
+                            style={{ width: "278px" }}>
+                            Good food is always cooking! Go ahead, order some yummy items from the menu.
+                        </p>
+                    </Col>
+                </Row>
             </>
         )
 }

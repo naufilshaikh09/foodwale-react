@@ -6,4 +6,6 @@ export const RESTAURANT_MENU_API = "https://www.swiggy.com/dapi/menu/v4/full?lat
 
 export const RESTAURANT_CAROUSELS_API = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_520,h_520/";
 
-export const Url_Not_Found = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/empty_404_3x_rgdw87"
+export const Url_Not_Found = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/empty_404_3x_rgdw87";
+
+export const NO_CART_IMAGE_URL = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_480/Cart_empty_-_menu_2x_ejjkf2";

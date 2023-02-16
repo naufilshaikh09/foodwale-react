@@ -61,20 +61,25 @@ const Body = () => {
                 </div>
 
                 <div className='container'>
-                    <InputGroup className="mb-1">
+                    <InputGroup className="mb-1 search-text">
                         <Form.Control
                             placeholder="Search Restaurants..."
                             aria-label="Recipient's username"
                             aria-describedby="basic-addon2"
+                            className='search-input'
                             value={searchText}
-                            onChange={(e) => setSearchText(e.target.value)}
+                            onChange={(e) => {
+                                setSearchText(e.target.value);
+                                const data = filterData(e.target.value, allRestaurants);
+                                setFilteredRestaurants(data);
+                            }}
                         />
-                        <Button variant="outline-secondary" id="button-addon2"
+                        {/* <Button variant="outline-secondary" id="button-addon2"
                             onClick={() => {
                                 const data = filterData(searchText, allRestaurants);
                                 setFilteredRestaurants(data);
                             }}> Search
-                        </Button>
+                        </Button> */}
                     </InputGroup>
 
                     <div className='restaurant-list'>
