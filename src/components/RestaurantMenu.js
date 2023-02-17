@@ -5,7 +5,7 @@ import Shimmer from "./Shimmer";
 import Card from 'react-bootstrap/Card';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../utils/cartSlice";
 import { Button, Image } from "react-bootstrap";
 import { MdOutlineLocalOffer, MdExposurePlus1, MdExposureNeg1 } from "react-icons/md";
@@ -14,6 +14,8 @@ const RestaurantMenu = () => {
     let { restId } = useParams();
     const [restaurantMenuDetails, setRestaurantMenuDetails] = useState(null);
     const [widgetList, setwidgetList] = useState(null);
+
+    const cartItems = useSelector((store) => store.cart.items);
 
     const dispatch = useDispatch();
 
@@ -146,16 +148,31 @@ const RestaurantMenu = () => {
                                                                 className='normal-text small-text'>
                                                                 {item.description}
                                                             </Card.Text>
-                                                            <div style={{ float: "right", position: "absolute", bottom: "10px", right: "50%" }}>
+                                                            <div style={
+                                                                {
+                                                                    float: "right",
+                                                                    position: "absolute",
+                                                                    bottom: "0px",
+                                                                    right: "17%",
+                                                                    boxShadow: "0 2px 14px #888484"
+                                                                }
+                                                            }>
                                                                 <Button
-                                                                    style={{ marginRight: "1px", background: "red", borderColor: "red" }}
+                                                                    style={{ background: "white", borderColor: "white", color: "black", borderRadius: "0" }}
                                                                     onClick={() => removeFoodItem(item)}>
-                                                                    <MdExposureNeg1 />
+                                                                    {/* <MdExposureNeg1 /> */}
+                                                                    -
+                                                                </Button>
+                                                                <Button style={{ background: "white", borderColor: "white", color: "black", borderRadius: "0" }}>
+                                                                    {
+                                                                        cartItems.filter(x => x.id == item.id).length
+                                                                    }
                                                                 </Button>
                                                                 <Button
-                                                                    style={{ marginRight: "1px", background: "green", borderColor: "green" }}
+                                                                    style={{ background: "white", borderColor: "white", color: "black", borderRadius: "0" }}
                                                                     onClick={() => addFoodItem(item)}>
-                                                                    <MdExposurePlus1 />
+                                                                    {/* <MdExposurePlus1 /> */}
+                                                                    +
                                                                 </Button>
                                                             </div>
                                                         </Card.Body>
@@ -183,7 +200,7 @@ const RestaurantMenu = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col style={{ marginTop: "15px", width: "278px", marginLeft: "50px", opacity: 1 }}>
+                    <Col style={{ marginTop: "15px", width: "278px", marginLeft: "20px", opacity: 1 }}>
                         <h2 style={{ width: "278px" }}>
                             Cart Empty
                         </h2>

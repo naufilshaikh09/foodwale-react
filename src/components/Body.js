@@ -45,20 +45,23 @@ const Body = () => {
         ? <Shimmer />
         : (
             <>
-                <div className='carousels-list d-flex justify-content-center'>
-                    {
-                        carousels.length === 0
-                            ? "No data found"
-                            : carousels.map((carousel) => {
-                                return (
-                                    <Carousels
-                                        {...carousel.data}
-                                        key={carousel.data.bannerId}
-                                    />
-                                )
-                            })
-                    }
+                <div className='curousel-bg' style={{ padding: "40px", background: "black" }}>
+                    <div className='carousels-list d-flex justify-content-center'>
+                        {
+                            carousels.length === 0
+                                ? "No data found"
+                                : carousels.map((carousel) => {
+                                    return (
+                                        <Carousels
+                                            {...carousel.data}
+                                            key={carousel.data.bannerId}
+                                        />
+                                    )
+                                })
+                        }
+                    </div>
                 </div>
+
 
                 <div className='container'>
                     <InputGroup className="mb-1 search-text">
