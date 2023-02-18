@@ -46,11 +46,11 @@ const Body = () => {
         : (
             <>
                 <div className='curousel-bg' style={{ padding: "40px", background: "black" }}>
-                    <div className='carousels-list d-flex justify-content-center'>
+                    <div className='carousels-list d-flex justify-content-center overflow-auto' style={{ gap: "35px" }}>
                         {
                             carousels.length === 0
                                 ? "No data found"
-                                : carousels.map((carousel) => {
+                                : carousels.slice(0,4).map((carousel) => {
                                     return (
                                         <Carousels
                                             {...carousel.data}

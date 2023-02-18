@@ -6,7 +6,7 @@ import Image from 'react-bootstrap/Image'
 const Carousels = ({ creativeId }) => {
     return (
         <Image
-            style={{ width: '16rem' }}
+            style={{ width: '18rem' }}
             src={RESTAURANT_CAROUSELS_API + creativeId}>
         </Image>
 
