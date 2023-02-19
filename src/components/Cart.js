@@ -6,11 +6,11 @@ import FoodItem from "./FoodItem";
 const Cart = () => {
     const cartItems = useSelector((store) => store.cart.items);
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    const handleClearCart = () => {
-        dispatch(clearCart());
-    }
+    // const handleClearCart = () => {
+    //     dispatch(clearCart());
+    // }
 
     return (
         // <div>
