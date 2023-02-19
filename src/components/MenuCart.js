@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
 import MenuItemAddRemoveButton from './helper/MenuItemAddRemoveButton'
+import { LinkContainer } from 'react-router-bootstrap';
 
 const MenuCart = ({ cartItems }) => {
     const uniqueCart = [...new Set(cartItems)];
@@ -37,17 +38,20 @@ const MenuCart = ({ cartItems }) => {
                     )
                 })
             }
-            <Row>
-                <Col>
-                    <h4>Subtotal</h4>
-                    <p className='normal-text small-text'>Extra charges may apply</p>
-                </Col>
-                <Col></Col>
-                <Col>
-                    <b><p>&#8377;{total}</p></b>
-                </Col>
-            </Row>
-            <Button className='checkout-btn'>Checkout</Button>
+
+            <div>
+                <Row>
+                    <Col>
+                        <h4>Subtotal</h4>
+                        <p className='normal-text small-text'>Extra charges may apply</p>
+                    </Col>
+                    <Col></Col>
+                    <Col>
+                        <b><p>&#8377;{total}</p></b>
+                    </Col>
+                </Row>
+            </div>
+            <LinkContainer to="/cart"><Button className='checkout-btn'>Checkout</Button></LinkContainer>
         </>
     )
 }
