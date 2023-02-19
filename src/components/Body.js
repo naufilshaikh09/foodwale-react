@@ -2,7 +2,6 @@ import RestaurantCard from './RestaurantCard';
 import React, { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
 import { RESTAURANT_API } from '../utils/constant'
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -45,8 +44,12 @@ const Body = () => {
         ? <Shimmer />
         : (
             <>
-                <div className='curousel-bg' style={{ padding: "40px", background: "black" }}>
-                    <div className='carousels-list d-flex justify-content-center'>
+                <div
+                    className='curousel-bg'
+                    style={{ padding: "40px", background: "black" }}>
+                    <div
+                        className='carousels-list d-flex justify-content-center overflow-auto'
+                        style={{ gap: "35px" }}>
                         {
                             carousels.length === 0
                                 ? "No data found"
@@ -61,7 +64,6 @@ const Body = () => {
                         }
                     </div>
                 </div>
-
 
                 <div className='container'>
                     <InputGroup className="mb-1 search-text">

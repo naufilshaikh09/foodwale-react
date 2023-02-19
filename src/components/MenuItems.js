@@ -18,14 +18,13 @@ const MenuItems = ({ restaurantMenuDetails, cartItems, item, id, name, price, de
                         </Card.Title>
                         <Card.Text
                             className='normal-text small-text'>
-                            {price / 100} Rs
+                            &#8377;{price / 100}
                         </Card.Text>
                         <Card.Text
                             className='normal-text small-text'>
                             {description}
                         </Card.Text>
-                        <div className="item-add-remove-menu"
-                        >
+                        <div className="item-add-remove-menu">
                             {/* <MinusButton item={item} /> */}
                             {/* <ValueButton cartItems={cartItems} id={item.id} /> */}
                             {/* <PlusButton item={item} /> */}

@@ -1,5 +1,4 @@
 import { Button, Col, Row } from 'react-bootstrap';
-import { IMG_CDN_URL } from '../utils/constant';
 import Card from 'react-bootstrap/Card';
 
 const FoodItem = ({ cartItems }) => {
@@ -30,7 +29,7 @@ const FoodItem = ({ cartItems }) => {
                             <Col>
                                 <Card.Subtitle
                                     className='normal-text small-text'>
-                                    {e.price / 100} Rs
+                                    &#8377;{e.price / 100}
                                 </Card.Subtitle>
                             </Col>
                         </Row>)

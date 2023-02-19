@@ -17,17 +17,21 @@ const MenuCart = ({ cartItems }) => {
             {
                 uniqueCart.map((item) => {
                     return (
-                        <div key={item.id} style={{ marginBottom: "10px" }}>
+                        <div
+                            key={item.id}
+                            style={{ marginBottom: "10px" }}>
                             <Row style={{ fontSize: "14px" }}>
                                 <Col>{item.name}</Col>
                                 <Col>
                                     <div className="item-add-remove-cart">
                                         <MenuItemAddRemoveButton
-                                            cartItems={cartItems} item={item} id={item.id} />
+                                            cartItems={cartItems}
+                                            item={item}
+                                            id={item.id} />
                                     </div>
 
                                 </Col>
-                                <Col>{(item.price * cartItems.filter(x => x.id == item.id).length) / 100} rs</Col>
+                                <Col>&#8377;{(item.price * cartItems.filter(x => x.id == item.id).length) / 100}</Col>
                             </Row>
                         </div>
                     )
@@ -40,7 +44,7 @@ const MenuCart = ({ cartItems }) => {
                 </Col>
                 <Col></Col>
                 <Col>
-                    {total} rs
+                    <b><p>&#8377;{total}</p></b>
                 </Col>
             </Row>
             <Button className='checkout-btn'>Checkout</Button>
