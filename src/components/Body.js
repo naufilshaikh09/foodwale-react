@@ -53,7 +53,7 @@ const Body = () => {
                         {
                             carousels.length === 0
                                 ? "No data found"
-                                : carousels.map((carousel) => {
+                                : carousels.slice(0,4).map((carousel) => {
                                     return (
                                         <Carousels
                                             {...carousel.data}
