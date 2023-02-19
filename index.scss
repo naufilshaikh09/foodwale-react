@@ -222,3 +222,27 @@ li.li-style:hover {
 input.search-input.form-control{
 	border-color: #fc8019 !important;
 }
+
+.item-add-remove-menu {
+	float: right;
+	position: absolute;
+	bottom: 0px;
+	right: 17%;
+	box-shadow: 0 2px 14px #888484;
+}
+
+.item-add-remove-cart {
+	box-shadow: 0 2px 14px #888484;
+	width: 112px;
+}
+
+button.checkout-btn.btn.btn-primary {
+	background: #60b246;
+	border-color: #60b246;
+	border-radius: 0px;
+	width: 100%;
+}
+
+button.add-remove-btn-font-color.btn.btn-primary {
+	color: #60b246 !important;
+}
