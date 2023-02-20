@@ -29,7 +29,7 @@ const RestaurantMenu = () => {
             let fetchJson = await data.json();
             setRestaurantMenuDetails(fetchJson.data);
             setwidgetList(fetchJson.data.menu.widgets);
-            // console.log(fetchJson.data);
+            console.log(fetchJson.data);
             // console.log(fetchJson.data.menu.widgets)
         } catch (error) {
             console.log('There was an error while fetching restaurant menu ddata', error);
@@ -128,7 +128,7 @@ const RestaurantMenu = () => {
                                                 item={item}
                                                 id={item.id}
                                                 name={item.name}
-                                                price={item.price}
+                                                price={item.price > 0 ? item.price : item.defaultPrice}
                                                 description={item.description}
                                                 cloudinaryImageId={item.cloudinaryImageId}
                                             />

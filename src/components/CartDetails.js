@@ -3,9 +3,10 @@ import { Button, Col, Row } from 'react-bootstrap'
 import MenuItemAddRemoveButton from './helper/MenuItemAddRemoveButton';
 
 const CartDetails = ({ cartItems }) => {
+    debugger
     const uniqueCart = [...new Set(cartItems)];
     const total = cartItems.length > 0
-        ? cartItems.map(x => (x.price / 100)).reduce((sum, a) => sum + a, 0)
+        ? cartItems.map(x => (x.price > 0 ? x.price / 100 : x.defaultPrice / 100)).reduce((sum, a) => sum + a, 0)
         : 0;
 
     return (
@@ -30,7 +31,7 @@ const CartDetails = ({ cartItems }) => {
                                     </div>
 
                                 </Col>
-                                <Col>&#8377;{(item.price * cartItems.filter(x => x.id == item.id).length) / 100}</Col>
+                                <Col>&#8377;{((item.price > 0 ? item.price / 100 : item.defaultPrice / 100) * (cartItems.filter(x => x.id == item.id).length))}</Col>
                             </Row>
                         </div>
                     )
