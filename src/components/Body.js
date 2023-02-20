@@ -40,74 +40,79 @@ const Body = () => {
         }
     }
 
-    return (allRestaurants?.length === 0)
-        ? <Shimmer />
-        : (
-            <>
+    return (
+        <>
+            <div
+                className='curousel-bg'
+                style={{ padding: "40px", background: "black" }}>
                 <div
-                    className='curousel-bg'
-                    style={{ padding: "40px", background: "black" }}>
-                    <div
-                        className='carousels-list d-flex justify-content-center overflow-auto'
-                        style={{ gap: "35px" }}>
-                        {
-                            carousels.length === 0
-                                ? "No data found"
-                                : carousels.slice(0,4).map((carousel) => {
-                                    return (
-                                        <Carousels
-                                            {...carousel.data}
-                                            key={carousel.data.bannerId}
-                                        />
-                                    )
-                                })
-                        }
-                    </div>
+                    className='carousels-list d-flex justify-content-center overflow-auto'
+                    style={{ gap: "35px" }}>
+                    {
+                        carousels.length === 0
+                            ? "No data found"
+                            : carousels.slice(0, 4).map((carousel) => {
+                                return (
+                                    <Carousels
+                                        {...carousel.data}
+                                        key={carousel.data.bannerId}
+                                    />
+                                )
+                            })
+                    }
                 </div>
+            </div>
 
-                <div className='container'>
-                    <InputGroup className="mb-1 search-text">
-                        <Form.Control
-                            placeholder="Search Restaurants..."
-                            aria-label="Recipient's username"
-                            aria-describedby="basic-addon2"
-                            className='search-input'
-                            value={searchText}
-                            onChange={(e) => {
-                                setSearchText(e.target.value);
-                                const data = filterData(e.target.value, allRestaurants);
-                                setFilteredRestaurants(data);
-                            }}
-                        />
-                        {/* <Button variant="outline-secondary" id="button-addon2"
+            <div className='container'>
+                {
+                    (allRestaurants?.length === 0)
+                        ? <Shimmer />
+                        :
+                        <>
+                            <InputGroup className="mb-1 search-text">
+                                <Form.Control
+                                    placeholder="Search Restaurants..."
+                                    aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2"
+                                    className='search-input'
+                                    value={searchText}
+                                    onChange={(e) => {
+                                        setSearchText(e.target.value);
+                                        const data = filterData(e.target.value, allRestaurants);
+                                        setFilteredRestaurants(data);
+                                    }}
+                                />
+                                {/* <Button variant="outline-secondary" id="button-addon2"
                             onClick={() => {
                                 const data = filterData(searchText, allRestaurants);
                                 setFilteredRestaurants(data);
                             }}> Search
                         </Button> */}
-                    </InputGroup>
+                            </InputGroup>
 
-                    <div className='restaurant-list'>
-                        {
-                            filteredRestaurants.length === 0
-                                ? "No data found"
-                                : filteredRestaurants.map((restaurant) => {
-                                    return (
-                                        <LinkContainer
-                                            to={"/restaurant/" + restaurant.data.id}
-                                            key={restaurant.data.id}
-                                            className="normal-text">
-                                            <NavLink>
-                                                <RestaurantCard {...restaurant.data} />
-                                            </NavLink>
-                                        </LinkContainer>
-                                    )
-                                })
-                        }
-                    </div>
-                </div>
-            </>
-        )
+                            <div className='restaurant-list'>
+                                {
+                                    filteredRestaurants.length === 0
+                                        ? "No data found"
+                                        : filteredRestaurants.map((restaurant) => {
+                                            return (
+                                                <LinkContainer
+                                                    to={"/restaurant/" + restaurant.data.id}
+                                                    key={restaurant.data.id}
+                                                    className="normal-text">
+                                                    <NavLink>
+                                                        <RestaurantCard {...restaurant.data} />
+                                                    </NavLink>
+                                                </LinkContainer>
+                                            )
+                                        })
+                                }
+                            </div>
+                        </>
+                }
+            </div>
+        </>
+    )
 }
 
 export default Body;

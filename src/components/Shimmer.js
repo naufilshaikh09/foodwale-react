@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 
 const Shimmer = () => {
     return (
-        <div className='restaurant-list' style={{ margin: "100px" }}>
+        <div className='restaurant-list'>
             {
                 Array(20)
                     .fill("")

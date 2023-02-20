@@ -3,7 +3,6 @@ import { Button, Col, Row } from 'react-bootstrap'
 import MenuItemAddRemoveButton from './helper/MenuItemAddRemoveButton';
 
 const CartDetails = ({ cartItems }) => {
-    debugger
     const uniqueCart = [...new Set(cartItems)];
     const total = cartItems.length > 0
         ? cartItems.map(x => (x.price > 0 ? x.price / 100 : x.defaultPrice / 100)).reduce((sum, a) => sum + a, 0)

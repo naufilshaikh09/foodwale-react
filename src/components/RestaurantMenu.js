@@ -11,6 +11,7 @@ import Widget from "./Widget";
 import MenuItems from "./MenuItems";
 import EmptyCart from "./EmptyMenuCart";
 import MenuCart from "./MenuCart";
+import MenuBanner from "./MenuBanner";
 
 const RestaurantMenu = () => {
     let { restId } = useParams();
@@ -29,7 +30,7 @@ const RestaurantMenu = () => {
             let fetchJson = await data.json();
             setRestaurantMenuDetails(fetchJson.data);
             setwidgetList(fetchJson.data.menu.widgets);
-            console.log(fetchJson.data);
+            // console.log(fetchJson.data);
             // console.log(fetchJson.data.menu.widgets)
         } catch (error) {
             console.log('There was an error while fetching restaurant menu ddata', error);
@@ -40,73 +41,9 @@ const RestaurantMenu = () => {
         ? (<Shimmer />)
         : (
             <>
-                <Card
-                    style={{ width: '19rem' }}
-                    className="restroBanner">
-                    <Row>
-                        <Col
-                            style={{ margin: "auto", textAlign: "right" }}>
-                            <Card.Img
-                                className="restroImage"
-                                variant="top"
-                                src={IMG_CDN_URL + restaurantMenuDetails?.cloudinaryImageId} />
-                        </Col>
-                        <Col style={{ margin: "auto" }}>
-                            <Card.Body>
-                                <Card.Title>
-                                    {restaurantMenuDetails?.name}
-                                </Card.Title>
-                                <Card.Text
-                                    className="small-text"
-                                    style={{ color: "#a19a9a" }}>
-                                    {restaurantMenuDetails?.cuisines?.join(", ")}
-                                </Card.Text>
-                                <Card.Text
-                                    className="small-text"
-                                    style={{ color: "#a19a9a" }}>
-                                    {restaurantMenuDetails?.locality + ", " + restaurantMenuDetails?.area}
-                                </Card.Text>
-                                <Row>
-                                    <Col style={{ borderRight: "1px solid white" }}>
-                                        <Card.Subtitle>
-                                            {restaurantMenuDetails?.avgRating}
-                                        </Card.Subtitle>
-                                        <Card.Text className='small-text'>
-                                            {restaurantMenuDetails?.totalRatingsString}
-                                        </Card.Text>
-                                    </Col>
-                                    <Col style={{ borderRight: "1px solid white" }}>
-                                        <Card.Subtitle>
-                                            {restaurantMenuDetails?.sla?.slaString}
-                                        </Card.Subtitle>
-                                        <Card.Text className='small-text'>
-                                            Delivery Time
-                                        </Card.Text>
-                                    </Col>
-                                    <Col>
-                                        <Card.Subtitle>
-                                            &#8377;{restaurantMenuDetails?.costForTwo / 100}
-                                        </Card.Subtitle>
-                                        <Card.Text className='small-text'>
-                                            Cost for two
-                                        </Card.Text>
-                                    </Col>
-                                </Row>
-                            </Card.Body>
-                        </Col>
-                        <Col style={{ margin: "auto" }}>
-                            <div style={{ border: "1px solid white", width: "263px" }}>
-                                {
-                                    restaurantMenuDetails.aggregatedDiscountInfo.descriptionList.map((item, index) => {
-                                        return <p key={index} style={{ margin: "20px" }}>
-                                            <MdOutlineLocalOffer /> {item.meta}
-                                        </p>
-                                    })
-                                }
-                            </div>
-                        </Col>
-                    </Row>
-                </Card>
+                <div style={{ margin: "1px", padding: "1px" }}>
+                    <MenuBanner {...restaurantMenuDetails} />
+                </div>
 
                 <div style={{ margin: "10px", padding: "10px" }}>
                     <Row>

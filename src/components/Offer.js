@@ -1,5 +1,5 @@
 const About = () => {
-    return <h1>Offer</h1>
+    return <h3 style={{ margin: "10px", padding: "10px", textAlign: "center" }}>Coming soon...</h3>
 }
 
 export default About

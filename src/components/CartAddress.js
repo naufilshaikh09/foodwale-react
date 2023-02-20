@@ -9,7 +9,7 @@ const CartAddress = () => {
 
             <Row style={{ marginTop: "30px" }}>
                 <Col>
-                    <div style={{ border: "1px solid #e9ecee", height: "218px", width: "324px" }}>
+                    <div style={{ border: "2px solid #e9ecee", height: "218px", width: "324px" }}>
                         <div style={{ margin: "10px", padding: "10px" }}>
                             <h6>Work</h6>
                             <p className='normal-text small-text'>A-1111 ABC Road, Near PQR Garden, Ahmedabad-123456</p>
@@ -18,7 +18,7 @@ const CartAddress = () => {
                         </div>
                     </div></Col>
                 <Col>
-                    <div style={{ border: "1px solid #e9ecee", height: "218px", width: "324px" }}>
+                    <div style={{ border: "2px dotted #e9ecee", height: "218px", width: "324px" }}>
                         <div style={{ margin: "10px", padding: "10px" }}>
                             <h6>Add New Address</h6>
                             <p className='normal-text small-text'>Ahmedabad-123456</p>
