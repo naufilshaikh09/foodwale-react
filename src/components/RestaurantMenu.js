@@ -37,10 +37,13 @@ const RestaurantMenu = () => {
         }
     }
 
+    // if (!restaurantMenuDetails) return null;
+
     return !restaurantMenuDetails
         ? (<Shimmer />)
         : (
             <>
+
                 <div style={{ margin: "1px", padding: "1px" }}>
                     <MenuBanner {...restaurantMenuDetails} />
                 </div>
@@ -50,7 +53,7 @@ const RestaurantMenu = () => {
                         <Col style={{ textAlign: "right", listStyleType: "none", margin: "10px", padding: "10px", }}>
                             {
                                 widgetList.map((e, index) => {
-                                    return <Widget name={e.name} index={index} />
+                                    return <Widget name={e.name} key={index} />
                                 })
                             }
                         </Col>
@@ -63,6 +66,7 @@ const RestaurantMenu = () => {
                                                 restaurantMenuDetails={restaurantMenuDetails}
                                                 cartItems={cartItems}
                                                 item={item}
+                                                key={item.id}
                                                 id={item.id}
                                                 name={item.name}
                                                 price={item.price > 0 ? item.price : item.defaultPrice}

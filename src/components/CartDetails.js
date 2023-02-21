@@ -38,12 +38,12 @@ const CartDetails = ({ cartItems }) => {
             }
 
             <div
-                style={{ border: "1px dotted black", marginBottom: "15px", padding: "10px", width: "80%" }}>
+                style={{ border: "1px dotted black", marginBottom: "15px", padding: "10px", width: "100%" }}>
                 <p className='normal-text small-text'>"Any suggestions? We will pass it on...</p>
             </div>
 
             <div
-                style={{ border: "1px dotted black", marginBottom: "15px", padding: "10px", width: "80%" }}>
+                style={{ border: "1px dotted black", marginBottom: "15px", padding: "10px", width: "100%" }}>
                 Opt in for No-contact Delivery
                 <p
                     className='normal-text small-text'>
@@ -52,7 +52,7 @@ const CartDetails = ({ cartItems }) => {
             </div>
 
             <div
-                style={{ border: "1px dotted black", marginBottom: "15px", padding: "10px", width: "80%" }}>
+                style={{ border: "1px dotted black", marginBottom: "15px", padding: "10px", width: "100%" }}>
                 Apply Coupon
             </div>
 
@@ -69,7 +69,7 @@ const CartDetails = ({ cartItems }) => {
                 </Row>
             </div>
 
-            <div style={{ marginTop: "0px", marginBottom: "10px", border: "1px solid black", width: "80%" }}></div>
+            <div style={{ marginTop: "0px", marginBottom: "10px", border: "1px solid black", width: "100%" }}></div>
 
             <div>
                 <Row>

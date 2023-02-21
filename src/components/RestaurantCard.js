@@ -10,7 +10,8 @@ const RestaurantCard =
         cloudinaryImageId,
         lastMileTravelString,
         costForTwoString,
-        avgRating
+        avgRating,
+        aggregatedDiscountInfo
     }) => {
         return (
             <>
@@ -62,6 +63,12 @@ const RestaurantCard =
                                 </Card.Text>
                             </Col>
                         </Row>
+                        <div style={{ borderBottom: "1px solid #a19a9a", marginTop: "5px", marginBottom: "5px" }}></div>
+                        <Card.Text
+                            className='normal-text small-text'
+                            style={{ fontSize: "13px", fontWeight: "400", color: "#8a584b" }}>
+                            {aggregatedDiscountInfo?.descriptionList[0]?.meta}
+                        </Card.Text>
                     </Card.Body>
                 </Card>
             </>

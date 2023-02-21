@@ -83,11 +83,11 @@ const Body = () => {
                                     }}
                                 />
                                 {/* <Button variant="outline-secondary" id="button-addon2"
-                            onClick={() => {
-                                const data = filterData(searchText, allRestaurants);
-                                setFilteredRestaurants(data);
-                            }}> Search
-                        </Button> */}
+                                    onClick={() => {
+                                        const data = filterData(searchText, allRestaurants);
+                                        setFilteredRestaurants(data);
+                                    }}> Search
+                                </Button> */}
                             </InputGroup>
 
                             <div className='restaurant-list'>
