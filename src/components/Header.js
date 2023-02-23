@@ -47,9 +47,9 @@ const Header = () => {
                         <LinkContainer to="/offer">
                             <Nav.Link className="header-name"><MdLocalOffer className="header-icon" /> Offer</Nav.Link>
                         </LinkContainer>
-                        <LinkContainer to="/help">
+                        {/* <LinkContainer to="/help">
                             <Nav.Link className="header-name"><MdOutlineHelp className="header-icon" />Help</Nav.Link>
-                        </LinkContainer>
+                        </LinkContainer> */}
                         {
                             isUserLoggedIn == "true"
                                 ? <Nav.Link className="header-name"

@@ -14,7 +14,7 @@ const CartAddress = () => {
                             <h6>Work</h6>
                             <p className='normal-text small-text'>A-1111 ABC Road, Near PQR Garden, Ahmedabad-123456</p>
                             <p>10 minutes</p>
-                            <Button className='checkout-btn'>Deliver here</Button>
+                            <Button className='address-btn'>Deliver here</Button>
                         </div>
                     </div></Col>
                 <Col>
@@ -22,7 +22,7 @@ const CartAddress = () => {
                         <div style={{ margin: "10px", padding: "10px" }}>
                             <h6>Add New Address</h6>
                             <p className='normal-text small-text'>Ahmedabad-123456</p>
-                            <Button className='checkout-btn'>Add New</Button>
+                            <Button className='address-btn'>Add New</Button>
                         </div>
                     </div></Col>
             </Row>
