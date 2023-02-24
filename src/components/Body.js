@@ -50,7 +50,7 @@ const Body = () => {
                     style={{ gap: "35px" }}>
                     {
                         carousels.length === 0
-                            ? "No data found"
+                            ? ""
                             : carousels.slice(0, 4).map((carousel) => {
                                 return (
                                     <Carousels
